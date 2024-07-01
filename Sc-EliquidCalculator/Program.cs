@@ -7,25 +7,35 @@
             while (true)
             {
                 double totalMl = ReadDouble("Enter the total desired quantity of liquid (ml): ");
-                double desiredPgPercentage = ReadDouble("Enter the desired percentage of Propylene Glycol (PG): ");
-                double desiredVgPercentage = ReadDouble("Enter the desired percentage of Vegetable Glycerin (VG): ");
-                double desiredNicotinePercentage = ReadDouble("Enter the desired nicotine percentage: ");
+                double desiredPgPercentage;
+                double desiredVgPercentage;
+                while (true)
+                {
+                     desiredPgPercentage = ReadDouble("Enter the desired percentage of Propylene Glycol (PG): ");
+                     desiredVgPercentage = ReadDouble("Enter the desired percentage of Vegetable Glycerin (VG): ");
+                    if(desiredPgPercentage + desiredVgPercentage <= 100)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("The sum of PG and VG should not exceed 100. Please Enter Valid values.");
+                }
+                double desiredNicotineStrenght = ReadDouble("Enter the desired nicotine Strength (mg/ml): ");
                 double baseNicotineStrength = ReadDouble("Enter the nicotine strength in base (mg/ml): ");
                 double basePgPercentage = ReadDouble("Enter the percentage of Propylene Glycol (PG) in nicotine base: ");
                 double baseVgPercentage = ReadDouble("Enter the percentage of Vegetable Glycerin (VG) in nicotine base: ");
                 double flavorPercentage = ReadDouble("Enter the desired flavor percentage: ");
-                double flavorPgPercentage = ReadDouble("Enter the percentage of Propylene Glycol (PG) in flavor (check on the flavor label): ");
-                double flavorVgPercentage = ReadDouble("Enter the percentage of Vegetable Glycerin (VG) in flavor (check on the flavor label): ");
+                //Aroma can only be in pg.
+                double flavorPgPercentage = 100;
 
                 // Calculate flavor amount in ml
                 double flavorMl = (flavorPercentage / 100) * totalMl;
 
                 // Calculate nicotine amount in ml
-                double nicotineMl = (desiredNicotinePercentage * totalMl) / baseNicotineStrength;
+                double nicotineMl = (desiredNicotineStrenght * totalMl) / baseNicotineStrength;
 
-                // Calculate PG and VG amount from flavor
+                // Calculate PG amount from flavor
                 double flavorPgMl = flavorMl * (flavorPgPercentage / 100);
-                double flavorVgMl = flavorMl * (flavorVgPercentage / 100);
+                double flavorVgMl = 0;
 
                 // Calculate PG and VG amount from nicotine base
                 double nicotinePgMl = nicotineMl * (basePgPercentage / 100);
@@ -61,7 +71,7 @@
             while (true)
             {
                 Console.Write(message);
-                if (double.TryParse(Console.ReadLine(), out result))
+                if (double.TryParse(Console.ReadLine(), out result) && result >=0)
                 {
                     break;
                 }
