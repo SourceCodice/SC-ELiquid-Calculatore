@@ -9,6 +9,9 @@
                 double totalMl = ReadDouble("Enter the total desired quantity of liquid (ml): ");
                 double desiredPgPercentage;
                 double desiredVgPercentage;
+                double baseNicotineStrength;
+                double basePgPercentage;
+                double baseVgPercentage;
                 while (true)
                 {
                      desiredPgPercentage = ReadDouble("Enter the desired percentage of Propylene Glycol (PG): ");
@@ -20,10 +23,27 @@
                     Console.WriteLine("The sum of PG and VG should not exceed 100. Please Enter Valid values.");
                 }
                 double desiredNicotineStrenght = ReadDouble("Enter the desired nicotine Strength (mg/ml): ");
-                double baseNicotineStrength = ReadDouble("Enter the nicotine strength in base (mg/ml): ");
-                double basePgPercentage = ReadDouble("Enter the percentage of Propylene Glycol (PG) in nicotine base: ");
-                double baseVgPercentage = ReadDouble("Enter the percentage of Vegetable Glycerin (VG) in nicotine base: ");
+                while (true)
+                {
+                    baseNicotineStrength = ReadDouble("Enter the nicotine strength in base (mg/ml): ");
+                    if (baseNicotineStrength <= 20)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("The maximum nicotine strenght is 20. Please Enter Valid values.");
+                }
+                while (true)
+                {
+                    basePgPercentage = ReadDouble("Enter the percentage of Propylene Glycol (PG) in nicotine base: ");
+                    baseVgPercentage = ReadDouble("Enter the percentage of Vegetable Glycerin (VG) in nicotine base: ");
+                    if (basePgPercentage + baseVgPercentage <= 100)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("The sum of nicotine PG and VG should not exceed 100. Please Enter Valid values.");
+                }
                 double flavorPercentage = ReadDouble("Enter the desired flavor percentage: ");
+                
                 //Aroma can only be in pg.
                 double flavorPgPercentage = 100;
 
