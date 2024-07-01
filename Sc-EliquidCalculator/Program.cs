@@ -6,54 +6,55 @@
         {
             while (true)
             {
-                double totalMl = ReadDouble("Inserisci la quantità totale di liquido desiderato (ml): ");
-                double desiredNicotinePercentage = ReadDouble("Inserisci la percentuale di nicotina desiderata: ");
-                double desiredPgPercentage = ReadDouble("Inserisci la percentuale di glicole propilenico (PG) desiderata: ");
-                double desiredVgPercentage = ReadDouble("Inserisci la percentuale di glicerolo vegetale (VG) desiderata: ");
-                double baseNicotineStrength = ReadDouble("Inserisci la percentuale di nicotina nella base (mg/ml): ");
-                double basePgPercentage = ReadDouble("Inserisci la percentuale di glicole propilenico (PG) nella base di nicotina: ");
-                double baseVgPercentage = ReadDouble("Inserisci la percentuale di glicerolo vegetale (VG) nella base di nicotina: ");
-                double flavorPercentage = ReadDouble("Inserisci la percentuale di aroma desiderata: ");
-                double flavorPgPercentage = ReadDouble("Inserisci la percentuale di glicole propilenico (PG) nell'aroma (leggi sul retro dell'aroma): ");
-                double flavorVgPercentage = ReadDouble("Inserisci la percentuale di glicerolo vegetale (VG) nell'aroma (leggi sul retro dell'aroma): ");
+                double totalMl = ReadDouble("Enter the total desired quantity of liquid (ml): ");
+                double desiredPgPercentage = ReadDouble("Enter the desired percentage of Propylene Glycol (PG): ");
+                double desiredVgPercentage = ReadDouble("Enter the desired percentage of Vegetable Glycerin (VG): ");
+                double desiredNicotinePercentage = ReadDouble("Enter the desired nicotine percentage: ");
+                double baseNicotineStrength = ReadDouble("Enter the nicotine strength in base (mg/ml): ");
+                double basePgPercentage = ReadDouble("Enter the percentage of Propylene Glycol (PG) in nicotine base: ");
+                double baseVgPercentage = ReadDouble("Enter the percentage of Vegetable Glycerin (VG) in nicotine base: ");
+                double flavorPercentage = ReadDouble("Enter the desired flavor percentage: ");
+                double flavorPgPercentage = ReadDouble("Enter the percentage of Propylene Glycol (PG) in flavor (check on the flavor label): ");
+                double flavorVgPercentage = ReadDouble("Enter the percentage of Vegetable Glycerin (VG) in flavor (check on the flavor label): ");
 
-                // Calcolare i ml di aroma
+                // Calculate flavor amount in ml
                 double flavorMl = (flavorPercentage / 100) * totalMl;
 
-                // Calcolare i ml di nicotina necessari
+                // Calculate nicotine amount in ml
                 double nicotineMl = (desiredNicotinePercentage * totalMl) / baseNicotineStrength;
 
-                // Calcolare i ml di glicole e glicerolo dall'aroma
+                // Calculate PG and VG amount from flavor
                 double flavorPgMl = flavorMl * (flavorPgPercentage / 100);
                 double flavorVgMl = flavorMl * (flavorVgPercentage / 100);
 
-                // Calcolare i ml di glicole e glicerolo dalla base di nicotina
+                // Calculate PG and VG amount from nicotine base
                 double nicotinePgMl = nicotineMl * (basePgPercentage / 100);
                 double nicotineVgMl = nicotineMl * (baseVgPercentage / 100);
 
-                // Calcolare il totale desiderato di PG e VG
+                // Calculate total desired PG and VG
                 double desiredTotalPgMl = (desiredPgPercentage / 100) * totalMl;
                 double desiredTotalVgMl = (desiredVgPercentage / 100) * totalMl;
 
-                // Calcolare il PG e VG della base neutra tenendo conto di quanto già presente in aroma e nicotina
+                // Calculate PG and VG from neutral base considering what is already present in flavor and nicotine
                 double basePgMl = desiredTotalPgMl - flavorPgMl - nicotinePgMl;
                 double baseVgMl = desiredTotalVgMl - flavorVgMl - nicotineVgMl;
 
-                // Output dei risultati
-                Console.WriteLine($"\nQuantità di glicole propilenico (PG) da aggiungere: {basePgMl} ml");
-                Console.WriteLine($"Quantità di glicerolo vegetale (VG) da aggiungere: {baseVgMl} ml");
-                Console.WriteLine($"Quantità di nicotina da aggiungere: {nicotineMl} ml");
-                Console.WriteLine($"Quantità di aroma da aggiungere: {flavorMl} ml");
+                // Output results
+                Console.WriteLine($"\nAmount of Propylene Glycol (PG) to add: {basePgMl} ml");
+                Console.WriteLine($"Amount of Vegetable Glycerin (VG) to add: {baseVgMl} ml");
+                Console.WriteLine($"Amount of nicotine to add: {nicotineMl} ml");
+                Console.WriteLine($"Amount of flavor to add: {flavorMl} ml");
 
-                Console.Write("\nVuoi calcolare un'altra composizione? (s/n): ");
+                Console.Write("\nDo you want to calculate another composition? (y/n): ");
                 string response = Console.ReadLine().ToLower();
 
-                if (response != "s")
+                if (response != "y")
                 {
                     break;
                 }
             }
         }
+
         static double ReadDouble(string message)
         {
             double result;
@@ -64,7 +65,7 @@
                 {
                     break;
                 }
-                Console.WriteLine("Per favore, inserisci un numero valido.");
+                Console.WriteLine("Please enter a valid number.");
             }
             return result;
         }
