@@ -19,8 +19,6 @@
                 <li><strong>Base PG Percentage:</strong> Percentage of PG in the nicotine base.</li>
                 <li><strong>Base VG Percentage:</strong> Percentage of VG in the nicotine base.</li>
                 <li><strong>Flavor Percentage:</strong> Percentage of flavor concentrate to add.</li>
-                <li><strong>Flavor PG Percentage:</strong> Percentage of PG in the flavor concentrate (check the label).</li>
-                <li><strong>Flavor VG Percentage:</strong> Percentage of VG in the flavor concentrate (check the label).</li>
             </ul>
         </li>
         <li><strong>Calculation Process:</strong>
