@@ -14,7 +14,7 @@
                 <li><strong>Total Desired Quantity (ml):</strong> Total amount of e-liquid you wish to produce.</li>
                 <li><strong>Desired PG Percentage:</strong> Percentage of Propylene Glycol (PG) in the final e-liquid.</li>
                 <li><strong>Desired VG Percentage:</strong> Percentage of Vegetable Glycerin (VG) in the final e-liquid.</li>
-                <li><strong>Desired Nicotine Percentage:</strong> Desired nicotine concentration in the final e-liquid.</li>
+                <li><strong>Desired Nicotine Strength:</strong> Desired nicotine concentration in the final e-liquid.</li>
                 <li><strong>Base Nicotine Strength (mg/ml):</strong> Nicotine concentration in the base liquid used.</li>
                 <li><strong>Base PG Percentage:</strong> Percentage of PG in the nicotine base.</li>
                 <li><strong>Base VG Percentage:</strong> Percentage of VG in the nicotine base.</li>
@@ -41,29 +41,26 @@
     </ol>
     <h2>How to Run</h2>
     <ul>
-        <li>Ensure you have a C# compiler installed (such as Visual Studio or .NET Core SDK).</li>
-        <li>Compile and execute the program, following the prompts to enter the required parameters.</li>
+        <li>Download the zip archive into the release tab.</li>
+        <li>Execute the program, following the prompts to enter the required parameters.</li>
     </ul>
     <h2>Example Usage</h2>
     <pre>
-Enter the total desired quantity of liquid (ml): 30
-Enter the desired percentage of Propylene Glycol (PG): 40
-Enter the desired percentage of Vegetable Glycerin (VG): 60
-Enter the desired nicotine percentage: 3
-Enter the nicotine strength in base (mg/ml): 18
-Enter the percentage of Propylene Glycol (PG) in nicotine base: 50
-Enter the percentage of Vegetable Glycerin (VG) in nicotine base: 50
-Enter the desired flavor percentage: 10
-Enter the percentage of Propylene Glycol (PG) in flavor (check on the flavor label): 20
-Enter the percentage of Vegetable Glycerin (VG) in flavor (check on the flavor label): 80
+Enter the total desired quantity of liquid (ml): 60
+Enter the desired percentage of Propylene Glycol (PG): 50
+Enter the desired percentage of Vegetable Glycerin (VG): 50
+Enter the desired nicotine Strength (mg/ml): 3
+Enter the nicotine strength in base (mg/ml): 20
+Enter the percentage of Propylene Glycol (PG) in nicotine base: 0
+Enter the percentage of Vegetable Glycerin (VG) in nicotine base: 100
+Enter the desired flavor percentage: 15
 
-Amount of Propylene Glycol (PG) to add: 9 ml
-Amount of Vegetable Glycerin (VG) to add: 12 ml
-Amount of nicotine to add: 5 ml
-Amount of flavor to add: 3 ml
+Amount of Propylene Glycol (PG) to add: 21 ml
+Amount of Vegetable Glycerin (VG) to add: 21 ml
+Amount of nicotine to add: 9 ml
+Amount of flavor to add: 9 ml
 
 Do you want to calculate another composition? (y/n):
-    </pre>
 
 </body>
 </html>
